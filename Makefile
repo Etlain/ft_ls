@@ -6,7 +6,7 @@
 #    By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 09:06:02 by mmouhssi          #+#    #+#              #
-#*   Updated: 2016/01/19 17:31:31 by mmouhssi         ###   ########.fr       *#
+#*   Updated: 2016/09/14 12:12:28 by mmouhssi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIBFT = -C libft/
 
 all: 
 	make $(LIBFT)
-	gcc -g -o $(NAME) $(addprefix $(PATH_SRC), $(SRC)) $(LIB)
+	gcc -o $(NAME) $(addprefix $(PATH_SRC), $(SRC)) $(LIB)
 
 clean :
 	make clean $(LIBFT)
