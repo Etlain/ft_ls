@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/14 00:21:09 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/14 21:56:11 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,6 @@
  * - si mauvais param suivi du param en question
  * renvoie tous les parametre valide derriere un - ou plusieurs consecutifs
 */
-
-char	*ft_ctoa(char c) // a ajouter a la librairie
-{
-	char *s;
-
-	s = (char *)ft_memalloc(2);
-	s[0] = c;
-	s[1] = '\0';
-	return (s);
-}
 
 static int	nbr_param(char *str, char *param, int (*f)(char c))
 {

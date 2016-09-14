@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/14 11:10:58 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/14 23:44:11 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,32 +30,38 @@ void	free_struct_l(t_l *l)
 	ft_free_tab(l->time);
 }
 
-void fill_struct_max(char *file, t_max *max)
+void fill_struct_max(char *file, t_max *m, char *param)
 {
 	struct stat buf;
 	t_l l;
 	int nbr;
 
 	lstat(file, &buf);
-	max->blocks = max->blocks + buf.st_blocks;
-	fill_struct_l(buf, file, &l);
-	(nbr = ft_strlen(l.file)) > max->file ? max->file = nbr : 0;
-	(nbr = ft_strlen(l.link)) > max->link ? max->link = nbr : 0;
-	(nbr = ft_strlen(l.pw_name)) > max->pw_name ? max->pw_name = nbr : 0;
-	(nbr = ft_strlen(l.gr_name)) > max->gr_name ? max->gr_name = nbr : 0;
+	m->blocks = m->blocks + buf.st_blocks;
+	fill_struct_l(buf, file, &l, param);
+	(nbr = ft_strlen(l.file)) > m->file ? m->file = nbr : 0;
+	free(file);
+	(nbr = ft_strlen(l.link)) > m->link ? m->link = nbr : 0;
+	(nbr = ft_strlen(l.pw_name)) > m->pw_name ? m->pw_name = nbr : 0;
+	(nbr = ft_strlen(l.gr_name)) > m->gr_name ? m->gr_name = nbr : 0;
 	if (l.rwx[0] == 'b' || l.rwx[0] == 'c')
 	{
-		(nbr = ft_strlen(l.minor)) > max->minor ? max->minor = nbr : 0;
-		(nbr = ft_strlen(l.major)) > max->major ? max->major = nbr : 0;
+		(nbr = ft_strlen(l.minor)) > m->minor ? m->minor = nbr : 0;
+		(nbr = ft_strlen(l.major)) > m->major ? m->major = nbr : 0;
 	}
 	else
-		(nbr = ft_strlen(l.size)) > max->size ? max->size = nbr : 0;
-	(nbr = ft_strlen(l.time[1])) > max->time1 ? max->time1 = nbr : 0;
+		(nbr = ft_strlen(l.size)) > m->size ? m->size = nbr : 0;
+	if (param != NULL && ft_strchr(param, 'T') != NULL)
+	{
+		(nbr = ft_strlen(l.time[0])) > m->time1 ? m->time1 = nbr : 0;
+		return ;
+	}
+	(nbr = ft_strlen(l.time[1])) > m->time1 ? m->time1 = nbr : 0;
 	if (ft_strchr(l.time[2], ':') != NULL)
-		(nbr = ft_strlen(l.time[2]) - 3) > max->time2 ? max->time2 = nbr : 0; // renommer max en m
+		(nbr = ft_strlen(l.time[2]) - 3) > m->time2 ? m->time2 = nbr : 0;
 	else
-		(nbr = ft_strlen(l.time[2])) > max->time2 ? max->time2 = nbr : 0;
-	free(file);
+		(nbr = ft_strlen(l.time[2])) > m->time2 ? m->time2 = nbr : 0;
+	
 }
 
 void	init_max(t_max *max)

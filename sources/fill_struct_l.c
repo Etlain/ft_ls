@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/14 10:56:58 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/15 00:44:32 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	ft_date(struct stat buf, t_l *l)
 	}
 }
 
-void	fill_struct_l(struct stat buf, char *path, t_l *l) // autre fichier
+void	fill_struct_l(struct stat buf, char *path, t_l *l, char *param)
 {
 	struct passwd *pwd;
 	struct group *gr;
@@ -115,7 +115,16 @@ void	fill_struct_l(struct stat buf, char *path, t_l *l) // autre fichier
 	}
 	else
 		l->size = ft_itoa(buf.st_size);
-	ft_date(buf, l);
+	if (param != NULL && ft_strchr(param, 'T') != NULL)
+	{
+		char *s;
+		l->time = (char **)ft_memalloc(2 * sizeof(char *));
+		s = ctime(&buf.st_mtimespec.tv_sec);
+		//ft_printf("test %d\n", ft_strlen(s));
+		l->time[0] = ft_strndup(s, ft_strlen(s) - 1);
+	}
+	else
+		ft_date(buf, l);
 	if (l->rwx[0] == 'l')
 	{
 		ft_bzero(buffer, 100);

@@ -6,7 +6,7 @@
 #    By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 09:06:02 by mmouhssi          #+#    #+#              #
-#*   Updated: 2016/09/14 12:12:28 by mmouhssi         ###   ########.fr       *#
+#*   Updated: 2016/09/14 22:05:53 by mmouhssi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = ft_ls
 LIB = libft/libft.a
 
 SRC = ft_param.c ft_putls.c ft_range.c ft_tab.c main.c \
-	  ft_struct.c ft_putdirl.c fill_struct_l.c
+	  ft_struct.c ft_putdirl.c fill_struct_l.c ft_putcolor.c
 
 PATH_SRC = sources/
 
@@ -25,7 +25,7 @@ LIBFT = -C libft/
 
 all: 
 	make $(LIBFT)
-	gcc -o $(NAME) $(addprefix $(PATH_SRC), $(SRC)) $(LIB)
+	gcc -g -o $(NAME) $(addprefix $(PATH_SRC), $(SRC)) $(LIB)
 
 clean :
 	make clean $(LIBFT)

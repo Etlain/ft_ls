@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/14 11:02:31 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/14 23:41:50 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,13 @@ void	ft_putdirr(char *path, char *param)
 	dir = NULL;
 	if (!path)
 		return ;
-	dir = ft_tab(path, &max, param);
+	if ((dir = ft_tab(path, &max, param)) == NULL)
+		return ;
 	ft_strchr(path, '/') != NULL ? ft_printf("\n\n%s:\n", path) : 0;
 	if (ft_strchr(param, 'l') != NULL)
 		ft_putdirl(path, param);
+	else if (ft_strchr(param, 'G') != NULL)
+		ft_color_g(dir, path, param);
 	else
 		ft_putdir(dir);
 	i = 0;
@@ -115,6 +118,7 @@ void	ft_putls(char *path, char *param, int b)
 {
 	char **tab;
 	t_max max;
+	int	i;
 
 	init_max(&max);
 	if (param != NULL && (ft_strchr(param, 'R') != NULL))
@@ -127,9 +131,13 @@ void	ft_putls(char *path, char *param, int b)
 		ft_putdirl(path, param);
 		return ;
 	}
-	tab = ft_tab(path, &max, param);
+	if ((tab = ft_tab(path, &max, param)) == NULL)
+		return ;
 	if (b == 1)
 		ft_printf("\n%s:\n", path);
-	ft_putdir(tab);
+	if (param != NULL && ft_strchr(param, 'G') != NULL)
+		ft_color_g(tab, path, param);
+	else
+		ft_putdir(tab);
 	ft_free_tab(tab);
 }

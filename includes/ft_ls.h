@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 16:49:57 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/13 11:55:36 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/14 23:21:14 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,23 @@ typedef struct		s_max // taille max mot chaque categorie pour affichage
 
 void    nbr_line(t_max *max); // dans main pour l instant
 void	ft_sort(char *path, char **tab, char *param);
-char	**fill_tab(char *directory, t_max *max);
-char	**fill_tab_a(char *directory, t_max *max);
+char	**fill_tab(char *directory, t_max *max, char *param);
+char	**fill_tab_a(char *directory, t_max *max, char *param);
 //char	*ft_permission(struct stat buf, char *path);
 void	ft_putls(char *path, char *param, int b);
 int		is_param(char c); // ptet pas necessaire dans le .h
 char	**ft_tab(char *directory, t_max *max, char *param);
-// a effacer
+// bonus color
+void	ft_putcolor(char rwx, char *s);
+void	ft_color_g(char **tab, char *path, char *param);
+// a effacer verifier
 char	*ft_param(char **argv, int argc, int (*f)(char c));
-char	*ft_ctoa(char c);
 void	ft_putdir(char **tab);
 void	ft_putdirl(char *path, char *param);
 void	ft_putdirr(char *path, char *param);
-void	fill_struct_l(struct stat buf, char *path, t_l *l);
+void	fill_struct_l(struct stat buf, char *path, t_l *l, char *param);
 void	free_struct_l(t_l *l);
 void	init_max(t_max *max);
-void	fill_struct_max(char *file, t_max *max);
+void	fill_struct_max(char *file, t_max *max, char *param);
 
 #endif
