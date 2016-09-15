@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/15 18:48:45 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/15 22:03:34 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static int sort_tu(char *path, char *s1, char *s2, int b)
 	pth2 = ft_strjoin_path(path, s2);
 	lstat(pth1, &buf1);
 	lstat(pth2, &buf2);
-	ft_printf("%s, %s\n", pth1, ctime(&buf1.st_atimespec.tv_sec));
+	//ft_printf("%s, %s\n", pth1, ctime(&buf1.st_atimespec.tv_sec));
 	ft_memdel((void **)&pth1);
 	ft_memdel((void **)&pth2);
 	if (b == 0 || b == 2)
@@ -153,8 +153,9 @@ void	ft_sort(char *path, char **tab, char *param)
 			r = 1;
 		if (path != NULL && (ft_strchr(param, 't') != NULL))
 		{
-			if (path != NULL && (ft_strchr(param, 'u') != NULL))
+			if (ft_strchr(param, 'u') != NULL)
 			{
+				//ft_putendl("test");
 				r == 1 ? (r = 3) : (r = 2);
 				sort_time(path, tab, r);
 				return ;

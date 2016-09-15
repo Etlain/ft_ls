@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/14 23:44:11 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/15 22:15:07 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void fill_struct_max(char *file, t_max *m, char *param)
 		(nbr = ft_strlen(l.time[2]) - 3) > m->time2 ? m->time2 = nbr : 0;
 	else
 		(nbr = ft_strlen(l.time[2])) > m->time2 ? m->time2 = nbr : 0;
-	
+	free_struct_l(&l);
 }
 
 void	init_max(t_max *max)
