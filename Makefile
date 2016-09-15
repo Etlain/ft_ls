@@ -15,7 +15,7 @@ NAME = ft_ls
 LIB = libft/libft.a
 
 SRC = ft_param.c ft_putls.c ft_range.c ft_tab.c main.c \
-	  ft_struct.c ft_putdirl.c fill_struct_l.c ft_putcolor.c
+	  ft_struct.c ft_putdirl.c fill_struct_l.c ft_putcolor.c ft_putformat.c
 
 PATH_SRC = sources/
 

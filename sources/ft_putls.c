@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/14 23:41:50 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/15 17:15:19 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ void	ft_putdirr(char *path, char *param)
 	ft_strchr(path, '/') != NULL ? ft_printf("\n\n%s:\n", path) : 0;
 	if (ft_strchr(param, 'l') != NULL)
 		ft_putdirl(path, param);
+	else if (ft_strchr(param, '2') != NULL)
+		ft_putformat(path, param);
 	else if (ft_strchr(param, 'G') != NULL)
 		ft_color_g(dir, path, param);
 	else
@@ -135,7 +137,10 @@ void	ft_putls(char *path, char *param, int b)
 		return ;
 	if (b == 1)
 		ft_printf("\n%s:\n", path);
-	if (param != NULL && ft_strchr(param, 'G') != NULL)
+	//ft_putendl("here");
+	if (param != NULL && ft_strchr(param, '2') != NULL)
+		ft_putformat(path, param);
+	else if (param != NULL && ft_strchr(param, 'G') != NULL)
 		ft_color_g(tab, path, param);
 	else
 		ft_putdir(tab);

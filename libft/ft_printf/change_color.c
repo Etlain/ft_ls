@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 18:45:53 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/06/01 18:53:11 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/15 12:21:56 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	ft_color(char *str, int i)
 	j = i;
 	while (str[j] != '}')
 		j++;
-	s = (char *)malloc(j + 1);
+	s = (char *)ft_memalloc(j + 1);
 	s[j + 1] = '\0';
 	ft_strncat(s, &str[i], j - i);
 	if (ft_getcolor(s, b) == 0)

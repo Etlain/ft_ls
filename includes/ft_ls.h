@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 16:49:57 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/14 23:21:14 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/15 16:56:45 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "../libft/includes/libft.h"
 # include <dirent.h>
 # include <sys/stat.h>
-//# include <sys/ioctl.h>
+# include <sys/ioctl.h>
 # include <errno.h>
 //# include <fcntl.h>
 # include <stdio.h>
@@ -74,7 +74,9 @@ int		is_param(char c); // ptet pas necessaire dans le .h
 char	**ft_tab(char *directory, t_max *max, char *param);
 // bonus color
 void	ft_putcolor(char rwx, char *s);
+void	ft_color_dir(char *path, char *dir, char *param);
 void	ft_color_g(char **tab, char *path, char *param);
+void	ft_putformat(char *path, char *param);
 // a effacer verifier
 char	*ft_param(char **argv, int argc, int (*f)(char c));
 void	ft_putdir(char **tab);

@@ -6,7 +6,7 @@
 /*   By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 20:17:56 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/15 00:41:23 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/15 17:14:13 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void    put_permission(struct stat buf, char *path, t_max max, char *param)
 	else
 	{
 		ft_putcolor(l.rwx[0], l.file);
+		ft_putchar('\n');
 	}
 	free_struct_l(&l);
 }
@@ -85,7 +86,9 @@ void    ft_putdirl(char *path, char *param)
 		i++;
 	if (param[i] == '1')
 	{
-		if (ft_strchr(param, 'G') != NULL)
+		if (ft_strchr(param, '2') != NULL)
+			ft_putformat(path, param);
+		else if (ft_strchr(param, 'G') != NULL)
 			ft_color_g(tab, path, param);
 		else
 			ft_putdir(tab);
