@@ -6,7 +6,7 @@
 /*   By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 12:38:00 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/15 17:19:53 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 21:26:50 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	ft_space(int space)
 	int i;
 
 	i = 0;
-	//ft_printf("%d\n", space);
 	while (i < space)
 	{
 		ft_putchar(' ');
@@ -25,7 +24,7 @@ static void	ft_space(int space)
 	}
 }
 
-void ft_putformat(char *path, char *param) // ajouter -G
+void ft_putformat(char *path, char *param)
 {
 	char **tab;
 	t_max max;
@@ -37,7 +36,6 @@ void ft_putformat(char *path, char *param) // ajouter -G
 	init_max(&max);
 	tab = ft_tab(path, &max, param);
 	i = 0;
-	//ft_printf("%d\n", ws.ws_col / max.file);
 	nbr_file =  ws.ws_col / max.file;
 	while (tab[i] != '\0')
 	{
@@ -45,11 +43,10 @@ void ft_putformat(char *path, char *param) // ajouter -G
 			ft_color_dir(path, tab[i], param);
 		else
 			ft_putstr(tab[i]);
-		if ((i + 1) % nbr_file == 0)
+		if ((i + 1) % nbr_file == 0 || tab[i + 1] == '\0')
 			ft_putchar('\n');
 		else
 			ft_space((max.file + 1) - ft_strlen(tab[i]));
 		i++;
-		//ft_printf("test %d\n", i % nbr_file);
 	}
 }

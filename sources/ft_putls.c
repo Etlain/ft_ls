@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/15 17:15:19 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 21:34:45 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,7 @@ void	ft_putdirr(char *path, char *param)
 	t_max max;
 	char **dir;
  	int i;
-	static int b;
 
-	dir = NULL;
 	if (!path)
 		return ;
 	if ((dir = ft_tab(path, &max, param)) == NULL)
@@ -109,8 +107,6 @@ void	ft_putdirr(char *path, char *param)
 	{
 		if (ft_strcmp(dir[i], ".") != 0 && ft_strcmp(dir[i], "..") != 0)
 			ft_dirr(path, dir, i, param);
-		/*else
-			break ;*/
 		i++;
 	}
 	ft_free_tab(dir);
@@ -120,7 +116,6 @@ void	ft_putls(char *path, char *param, int b)
 {
 	char **tab;
 	t_max max;
-	int	i;
 
 	init_max(&max);
 	if (param != NULL && (ft_strchr(param, 'R') != NULL))
@@ -137,7 +132,6 @@ void	ft_putls(char *path, char *param, int b)
 		return ;
 	if (b == 1)
 		ft_printf("\n%s:\n", path);
-	//ft_putendl("here");
 	if (param != NULL && ft_strchr(param, '2') != NULL)
 		ft_putformat(path, param);
 	else if (param != NULL && ft_strchr(param, 'G') != NULL)

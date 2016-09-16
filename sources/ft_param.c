@@ -6,11 +6,10 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/14 21:56:11 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 20:32:11 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../libft/includes/libft.h"
 #include "../includes/ft_ls.h"
 /* NULL si aucun param trouver 
  * - si mauvais param suivi du param en question
@@ -53,8 +52,8 @@ static void	fill_str(char **str, char *s)
 	{
 		tmp = *str;
 		*str = ft_strjoin(*str, s);
-		//free(tmp);
-		//free(s);
+		free(tmp);
+		free(s);
 	}
 	else
 		*str = s;
@@ -76,11 +75,11 @@ static void	param(char **str, char *param, int (*f)(char c))
 			add_param(*str, s, param[i], &j);
 		else
 		{
-			//free(s);
+			free(s);
 			*str != NULL ? free(*str) : 0;
 			tmp = ft_ctoa(param[i]);
 			*str = ft_strjoin("-", tmp);
-			//free(tmp);
+			free(tmp);
 			return ;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/15 17:25:57 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 22:11:21 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,14 @@ static int	ft_nbr_file(char *directory)
 	if ((dir = opendir(directory)) == NULL)
 	{
 		error = errno;
-		//ft_printf("%d\n", error);
 		if (error == 20)
 			ft_putendl(directory);
 		else
 		{
 			strerror(error);
-		//perror("fill_tab : opendir");
 			perror(directory);
 		}
 		return (-1);
-		//exit(-1);
 	}
 	while ((file = readdir(dir)) != NULL)
 		nbr_file++;

@@ -6,13 +6,13 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/15 00:44:32 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 22:22:00 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-void	type_file(mode_t *st_mode, char *tab)
+static void	type_file(mode_t *st_mode, char *tab)
 {
 	if (*st_mode & 8)
 	{
@@ -34,7 +34,7 @@ void	type_file(mode_t *st_mode, char *tab)
 	}
 }
 
-int	ft_rwx(mode_t *st_mode, char *tab, int size)
+static int	ft_rwx(mode_t *st_mode, char *tab, int size)
 {
 	if (*st_mode & 1)
 		tab[size] = 'x';
@@ -49,7 +49,7 @@ int	ft_rwx(mode_t *st_mode, char *tab, int size)
 	return (size);
 }
 
-char	*last_name(char *path)
+static char	*last_namep(char *path) // autre fichier
 {
 	int i;
 
@@ -62,7 +62,7 @@ char	*last_name(char *path)
 	return (&path[i]);
 }
 
-void	ft_date(struct stat buf, t_l *l)
+static void	ft_date(struct stat buf, t_l *l)
 {
 	time_t t;
 	time_t month_6;
@@ -87,14 +87,12 @@ void	ft_date(struct stat buf, t_l *l)
 	}
 }
 
-void	fill_struct_l(struct stat buf, char *path, t_l *l, char *param)
+static void	ft_fill(struct stat buf, t_l *l)
 {
 	struct passwd *pwd;
 	struct group *gr;
-	char buffer[100];
 	int size;
 
-	// faire une fonction pour le formatage de l'affichage
 	size = 9;
 	l->rwx = (char *)ft_memalloc(10 + 1);
 	ft_init_str(l->rwx, '-', 10);
@@ -115,12 +113,18 @@ void	fill_struct_l(struct stat buf, char *path, t_l *l, char *param)
 	}
 	else
 		l->size = ft_itoa(buf.st_size);
+}
+
+void	fill_struct_l(struct stat buf, char *path, t_l *l, char *param)
+{
+	char *s;
+	char buffer[100];
+
+	ft_fill(buf, l);
 	if (param != NULL && ft_strchr(param, 'T') != NULL)
 	{
-		char *s;
 		l->time = (char **)ft_memalloc(2 * sizeof(char *));
 		s = ctime(&buf.st_mtimespec.tv_sec);
-		//ft_printf("test %d\n", ft_strlen(s));
 		l->time[0] = ft_strndup(s, ft_strlen(s) - 1);
 	}
 	else
@@ -130,8 +134,8 @@ void	fill_struct_l(struct stat buf, char *path, t_l *l, char *param)
 		ft_bzero(buffer, 100);
 		ft_strcpy(buffer, " -> ");
 		readlink(path, &buffer[4], 96);
-		l->file = ft_strjoin(last_name(path), last_name(buffer));
+		l->file = ft_strjoin(last_namep(path), last_namep(buffer));
 	}
 	else
-		l->file = last_name(path);
+		l->file = last_namep(path);
 }

@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 16:49:57 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/15 16:56:45 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 22:15:25 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	**fill_tab(char *directory, t_max *max, char *param);
 char	**fill_tab_a(char *directory, t_max *max, char *param);
 //char	*ft_permission(struct stat buf, char *path);
 void	ft_putls(char *path, char *param, int b);
-int		is_param(char c); // ptet pas necessaire dans le .h
+//int		is_param(char c); // ptet pas necessaire dans le .h
 char	**ft_tab(char *directory, t_max *max, char *param);
 // bonus color
 void	ft_putcolor(char rwx, char *s);

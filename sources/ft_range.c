@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/15 22:03:34 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 22:00:53 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ int	compare_time(struct stat buf1, struct stat buf2, int b)
 				return (-1);
 		else if (buf2.st_mtimespec.tv_sec == buf1.st_mtimespec.tv_sec)
 		{
-			/*if (buf2.st_mtimespec.tv_nsec > buf1.st_mtimespec.tv_nsec)
-				return (-1);*/
 			if (buf2.st_mtimespec.tv_nsec == buf1.st_mtimespec.tv_nsec)
 				return (1);
 		}
@@ -72,8 +70,6 @@ int	compare_time(struct stat buf1, struct stat buf2, int b)
 				return (-1);
 		else if (buf2.st_atimespec.tv_sec == buf1.st_atimespec.tv_sec)
 		{
-			/*if (buf2.st_mtimespec.tv_nsec > buf1.st_mtimespec.tv_nsec)
-				return (-1);*/
 			if (buf2.st_atimespec.tv_nsec == buf1.st_atimespec.tv_nsec)
 				return (1);
 		}
@@ -81,25 +77,26 @@ int	compare_time(struct stat buf1, struct stat buf2, int b)
 	return (0);
 }
 
-static int sort_tu(char *path, char *s1, char *s2, int b)
+static void fill_buf(struct stat *buf1, char *path, char *s1)
 {
 	char *pth1;
-	char *pth2;
+
+	pth1 = ft_strjoin_path(path, s1);
+	lstat(pth1, buf1);
+	ft_memdel((void **)&pth1);
+}
+
+static int sort_tu(char *path, char *s1, char *s2, int b)
+{
 	struct stat buf1;
 	struct stat buf2;
 	int nbr;
 
 	nbr = 0;
-	pth1 = ft_strjoin_path(path, s1);
-	pth2 = ft_strjoin_path(path, s2);
-	lstat(pth1, &buf1);
-	lstat(pth2, &buf2);
-	//ft_printf("%s, %s\n", pth1, ctime(&buf1.st_atimespec.tv_sec));
-	ft_memdel((void **)&pth1);
-	ft_memdel((void **)&pth2);
+	fill_buf(&buf1, path, s1);
+	fill_buf(&buf2, path, s2);
 	if (b == 0 || b == 2)
 	{
-		//nbr = compare_mtime(buf2, buf1, b);
 		if ((nbr = compare_time(buf2, buf1, b)) == 1)
 			return (ft_strcmp(s2, s1));
 		else if (nbr == -1)
@@ -107,7 +104,6 @@ static int sort_tu(char *path, char *s1, char *s2, int b)
 	}
 	else if (b == 1 || b == 3)
 	{
-		//nbr = compare_mtime(buf1, buf2);
 		if ((nbr = compare_time(buf1, buf2, b)) == 1)
 			return (ft_strcmp(s1, s2));
 		else if (nbr == -1)

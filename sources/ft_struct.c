@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/15 22:15:07 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 22:09:41 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,20 @@ void	free_struct_l(t_l *l)
 	ft_free_tab(l->time);
 }
 
+static void fill_struct_m(t_l l, t_max *m, int *nbr)
+{
+	(*nbr = ft_strlen(l.link)) > m->link ? m->link = *nbr : 0;
+	(*nbr = ft_strlen(l.pw_name)) > m->pw_name ? m->pw_name = *nbr : 0;
+	(*nbr = ft_strlen(l.gr_name)) > m->gr_name ? m->gr_name = *nbr : 0;
+	if (l.rwx[0] == 'b' || l.rwx[0] == 'c')
+	{
+		(*nbr = ft_strlen(l.minor)) > m->minor ? m->minor = *nbr : 0;
+		(*nbr = ft_strlen(l.major)) > m->major ? m->major = *nbr : 0;
+	}
+	else
+		(*nbr = ft_strlen(l.size)) > m->size ? m->size = *nbr : 0;
+}
+
 void fill_struct_max(char *file, t_max *m, char *param)
 {
 	struct stat buf;
@@ -41,16 +55,7 @@ void fill_struct_max(char *file, t_max *m, char *param)
 	fill_struct_l(buf, file, &l, param);
 	(nbr = ft_strlen(l.file)) > m->file ? m->file = nbr : 0;
 	free(file);
-	(nbr = ft_strlen(l.link)) > m->link ? m->link = nbr : 0;
-	(nbr = ft_strlen(l.pw_name)) > m->pw_name ? m->pw_name = nbr : 0;
-	(nbr = ft_strlen(l.gr_name)) > m->gr_name ? m->gr_name = nbr : 0;
-	if (l.rwx[0] == 'b' || l.rwx[0] == 'c')
-	{
-		(nbr = ft_strlen(l.minor)) > m->minor ? m->minor = nbr : 0;
-		(nbr = ft_strlen(l.major)) > m->major ? m->major = nbr : 0;
-	}
-	else
-		(nbr = ft_strlen(l.size)) > m->size ? m->size = nbr : 0;
+	fill_struct_m(l, m, &nbr);
 	if (param != NULL && ft_strchr(param, 'T') != NULL)
 	{
 		(nbr = ft_strlen(l.time[0])) > m->time1 ? m->time1 = nbr : 0;
