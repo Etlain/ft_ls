@@ -6,13 +6,13 @@
 /*   By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 20:17:56 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 21:19:17 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 23:06:26 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-int		ft_space(int a, char *str)
+static int	ft_space(int a, char *str)
 {
 	int b;
 
@@ -20,7 +20,7 @@ int		ft_space(int a, char *str)
 	return (b + (a - b));
 }
 
-static void put(t_l l, t_max m, char *param)
+static void	put(t_l l, t_max m, char *param)
 {
 	ft_printf("%s ", l.rwx);
 	ft_printf("%*s ", ft_space(m.link, l.link), l.link);
@@ -35,7 +35,7 @@ static void put(t_l l, t_max m, char *param)
 		ft_printf("%*s ", ft_space(m.size, l.size), l.size);
 }
 
-void    put_permission(struct stat buf, char *path, t_max m, char *param)
+static void	put_permission(struct stat buf, char *path, t_max m, char *param)
 {
 	t_l l;
 	int n;
@@ -64,7 +64,7 @@ void    put_permission(struct stat buf, char *path, t_max m, char *param)
 	free_struct_l(&l);
 }
 
-static int display(char **tab, char *path, char *param, int *i)
+static int	display(char **tab, char *path, char *param, int *i)
 {
 	*i = 0;
 	while (param[*i] != 'l')
@@ -85,7 +85,7 @@ static int display(char **tab, char *path, char *param, int *i)
 	return (0);
 }
 
-void    ft_putdirl(char *path, char *param)
+void		ft_putdirl(char *path, char *param)
 {
 	t_max max;
 	char *pth2;

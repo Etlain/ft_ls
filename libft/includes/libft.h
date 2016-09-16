@@ -6,7 +6,7 @@
 /*   By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 15:42:01 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/14 12:06:47 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 22:45:07 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ void			ft_swap(int *a, int *b);
 void			ft_put_error(char *str);
 void			ft_putnstr(char *str, int lgt);
 char			*ft_strndup(const char *s1, int n);
+void			ft_sort_tab(char **tab, int b);
 void			ft_putwchar(wchar_t c);
 void			ft_putwstr(wchar_t *str);
 void			ft_putnwstr(wchar_t *str, int lgt);

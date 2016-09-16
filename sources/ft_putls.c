@@ -6,13 +6,13 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 21:34:45 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 23:07:11 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-void	ft_putbuf(void *buf, char *str, int *i)
+static void	ft_putbuf(void *buf, char *str, int *i)
 {
 	char *b;
 	int j;
@@ -58,7 +58,7 @@ void	ft_putdir(char **tab)
 	}
 }
 
-void	ft_dirr(char *path, char **dir, int i, char *param)
+static void	ft_dirr(char *path, char **dir, int i, char *param)
 {
 	struct stat st;
 	char *path2;

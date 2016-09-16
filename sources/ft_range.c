@@ -6,53 +6,13 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 22:00:53 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 23:07:36 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-// penser a ajouter erno
-// gestion -a
-// tableau trois dimenssion pour le formatage de l'affichage (ligne colonne
-// pointeur)
-
-// faire un tableau de char*
-
-static int sort(char *s1, char *s2, int b)
-{
-	if (b == 1)
-		return (ft_strcmp(s2, s1));
-	else
-		return (ft_strcmp(s1, s2));
-}
-
-static void	sort_tab(char **tab, int b) // 1 = reverse // ajouter a la biblio
-{
-	char *tmp;
-	int i;
-	int move;
-
-	move = 1;
-	while (move == 1)
-	{
-		i = 0;
-		move = 0;
-		while (tab[i + 1] != NULL)
-		{
-			if (sort(tab[i + 1], tab[i], b) < 0)
-			{
-				tmp = tab[i];
-				tab[i] = tab[i + 1];
-				tab[i + 1] = tmp;
-				move = 1;
-			}
-			i++;
-		}
-	}
-}
-
-int	compare_time(struct stat buf1, struct stat buf2, int b)
+static int	compare_time(struct stat buf1, struct stat buf2, int b)
 {
 	if (b == 0 || b == 1)
 	{
@@ -112,10 +72,9 @@ static int sort_tu(char *path, char *s1, char *s2, int b)
 	return (0);
 }
 
-static void	sort_time(char *path, char **tab, int b) // 1 = reverse
+static void	sort_time(char *path, char **tab, int b)
 {
 	char *tmp;
-	//char *pth;
 	int i;
 	int move;
 
@@ -151,7 +110,6 @@ void	ft_sort(char *path, char **tab, char *param)
 		{
 			if (ft_strchr(param, 'u') != NULL)
 			{
-				//ft_putendl("test");
 				r == 1 ? (r = 3) : (r = 2);
 				sort_time(path, tab, r);
 				return ;
@@ -160,5 +118,5 @@ void	ft_sort(char *path, char **tab, char *param)
 			return ;
 		}
 	}
-	sort_tab(tab, r);
+	ft_sort_tab(tab, r);
 }

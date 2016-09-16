@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 16:49:57 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 22:15:25 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 23:16:33 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,14 @@
 # include <sys/stat.h>
 # include <sys/ioctl.h>
 # include <errno.h>
-//# include <fcntl.h>
 # include <stdio.h>
 # include <grp.h>
 # include <pwd.h>
 # include <time.h>
-# define BUF_MAX 10
+# define BUF_MAX 100
 
-typedef struct		s_file // a supprimer si inutile avec le fichier lst_file fait avec amour :(
+typedef struct		s_l
 {
-	struct dirent	*file;
-	int				index;
-	struct s_file	*pre;
-	struct s_file	*next;
-}					t_file;
-
-typedef struct		s_l // taille max mot chaque categorie pour affichage
-{
-	//int				nbr_file;
-	//int				nbr_line;
 	char			*rwx;
 	char			*link;
 	char			*pw_name;
@@ -47,10 +36,8 @@ typedef struct		s_l // taille max mot chaque categorie pour affichage
 	char			*file;
 }					t_l;
 
-typedef struct		s_max // taille max mot chaque categorie pour affichage
+typedef struct		s_max
 {
-	//int				nbr_file;
-	//int				nbr_line;
 	int				blocks;
 	int				file;
 	int				link;
@@ -64,20 +51,14 @@ typedef struct		s_max // taille max mot chaque categorie pour affichage
 	char			*space;
 }					t_max;
 
-void    nbr_line(t_max *max); // dans main pour l instant
 void	ft_sort(char *path, char **tab, char *param);
-char	**fill_tab(char *directory, t_max *max, char *param);
-char	**fill_tab_a(char *directory, t_max *max, char *param);
-//char	*ft_permission(struct stat buf, char *path);
 void	ft_putls(char *path, char *param, int b);
-//int		is_param(char c); // ptet pas necessaire dans le .h
 char	**ft_tab(char *directory, t_max *max, char *param);
-// bonus color
+char	*last_namep(char *path);
 void	ft_putcolor(char rwx, char *s);
 void	ft_color_dir(char *path, char *dir, char *param);
 void	ft_color_g(char **tab, char *path, char *param);
 void	ft_putformat(char *path, char *param);
-// a effacer verifier
 char	*ft_param(char **argv, int argc, int (*f)(char c));
 void	ft_putdir(char **tab);
 void	ft_putdirl(char *path, char *param);

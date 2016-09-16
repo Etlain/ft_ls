@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   last_namep.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/08 15:34:08 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/14 11:57:43 by mmouhssi         ###   ########.fr       */
+/*   Created: 2016/09/16 22:26:14 by mmouhssi          #+#    #+#             */
+/*   Updated: 2016/09/16 22:34:41 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-
-char	*ft_strndup(const char *s1, int n)
+char     *last_namep(char *path) // autre fichier
 {
-	char *str;
 	int i;
 
 	i = 0;
-	str = (char *)malloc(ft_strlen(s1) + 1);
-	while (s1[i] != '\0' && i < n)
-	{
-		str[i] = s1[i];
+	while (path[i] != '\0')
 		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	while (i > 0 && path[i] != '/')
+		i--;
+	path[i] == '/' ? i++ : 0;
+	return (&path[i]);
 }

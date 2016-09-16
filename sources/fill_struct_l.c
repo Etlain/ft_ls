@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 22:22:00 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/16 23:05:02 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,6 @@ static int	ft_rwx(mode_t *st_mode, char *tab, int size)
 	size--;
 	*st_mode = *st_mode >> 3;
 	return (size);
-}
-
-static char	*last_namep(char *path) // autre fichier
-{
-	int i;
-
-	i = 0;
-	while (path[i] != '\0')
-		i++;
-	while (i > 0 && path[i] != '/')
-		i--;
-	path[i] == '/' ? i++ : 0;
-	return (&path[i]);
 }
 
 static void	ft_date(struct stat buf, t_l *l)
