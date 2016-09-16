@@ -6,7 +6,7 @@
 #    By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 09:06:02 by mmouhssi          #+#    #+#              #
-#*   Updated: 2016/09/14 12:04:52 by mmouhssi         ###   ########.fr       *#
+#*   Updated: 2016/09/16 22:48:45 by mmouhssi         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,17 +40,18 @@ SRC =   conversion/ft_ahtoi.c conversion/ft_atoi.c conversion/ft_base.c		\
 	\
 	other/ft_swap.c other/ft_tolower.c other/ft_toupper.c	\
 	\
-	string/ft_free_tab.c string/ft_init_str.c string/ft_sizewchar.c		\
-	string/ft_strcat.c string/ft_strchr.c string/ft_strclr.c		\
-	string/ft_strcmp.c string/ft_strcpy.c string/ft_strdel.c		\
-	string/ft_strdup.c string/ft_strequ.c string/ft_striter.c		\
-	string/ft_striteri.c string/ft_strjoin.c string/ft_strjoin_path.c 	\
-	string/ft_strlcat.c string/ft_strlen.c string/ft_strmap.c		\
-	string/ft_strmapi.c string/ft_strncat.c	string/ft_strncmp.c		\
-	string/ft_strncpy.c string/ft_strndup.c string/ft_strnequ.c		\
-	string/ft_strnew.c string/ft_strnstr.c string/ft_strrchr.c		\
-	string/ft_strsplit.c string/ft_strstr.c string/ft_strsub.c 		\
-	string/ft_strtrim.c string/ft_wstrlen.c string/ft_wnstrlen.c	\
+	string/ft_free_tab.c string/ft_init_str.c string/ft_sizewchar.c	\
+	string/ft_sort_tab.c string/ft_strcat.c string/ft_strchr.c 	\
+	string/ft_strclr.c string/ft_strcmp.c string/ft_strcpy.c 	\
+	string/ft_strdel.c string/ft_strdup.c string/ft_strequ.c 	\
+	string/ft_striter.c string/ft_striteri.c string/ft_strjoin.c 	\
+	string/ft_strjoin_path.c string/ft_strlcat.c string/ft_strlen.c \
+	string/ft_strmap.c string/ft_strmapi.c string/ft_strncat.c	\
+	string/ft_strncmp.c string/ft_strncpy.c string/ft_strndup.c	\
+	string/ft_strnequ.c string/ft_strnew.c string/ft_strnstr.c 	\
+	string/ft_strrchr.c string/ft_strsplit.c string/ft_strstr.c	\
+	string/ft_strsub.c string/ft_strtrim.c string/ft_wstrlen.c	\
+	string/ft_wnstrlen.c	\
 	\
 	ft_printf/add_width.c ft_printf/change_color.c ft_printf/fill_zero.c	\
 	ft_printf/ft_format.c ft_printf/ft_is.c	ft_printf/ft_printf.c		\
