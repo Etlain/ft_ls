@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/14 21:31:51 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/19 12:32:20 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 14:13:51 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,6 @@ void	ft_color_dir(char *path, char *dir, char *param)
 
 void	ft_color_g(char **tab, char *path, char *param)
 {
-	struct stat	buf;
-	char		*pth;
-	t_l			l;
 	int			i;
 
 	i = 0;

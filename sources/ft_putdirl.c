@@ -6,7 +6,7 @@
 /*   By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 20:17:56 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/19 12:37:51 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 14:14:29 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_space(int a, char *str)
 	return (b + (a - b));
 }
 
-static void	put(t_l l, t_max m, char *param)
+static void	put(t_l l, t_max m)
 {
 	ft_printf("%s ", l.rwx);
 	ft_printf("%*s ", ft_space(m.link, l.link), l.link);
@@ -41,7 +41,7 @@ static void	put_permission(struct stat buf, char *path, t_max m, char *param)
 	int n;
 
 	fill_struct_l(buf, path, &l, param);
-	put(l, m, param);
+	put(l, m);
 	if (param != NULL && ft_strchr(param, 'T') != NULL)
 		ft_printf("%*s ", ft_space(m.time1, l.time[0]), l.time[0]);
 	else

@@ -23,9 +23,11 @@ FLAGS = -Wall -Wextra -Werror
 
 LIBFT = -C libft/
 
-all: 
+all: $(NAME)
+
+$(NAME):
 	make $(LIBFT)
-	gcc -o $(NAME) $(addprefix $(PATH_SRC), $(SRC)) $(LIB)
+	gcc $(FLAGS) -o $(NAME) $(addprefix $(PATH_SRC), $(SRC)) $(LIB)
 
 clean :
 	make clean $(LIBFT)

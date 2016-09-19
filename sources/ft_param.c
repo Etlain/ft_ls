@@ -6,13 +6,13 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/19 12:30:45 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 14:16:06 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-static int	nbr_param(char *str, char *param, int (*f)(char c))
+static int	nbr_param(char *param, int (*f)(char c))
 {
 	int nbr;
 	int i;
@@ -62,7 +62,7 @@ static void	param(char **str, char *param, int (*f)(char c))
 	int		i;
 	int		j;
 
-	s = (char *)ft_memalloc((size_t)nbr_param(*str, param, f) + 1);
+	s = (char *)ft_memalloc((size_t)nbr_param(param, f) + 1);
 	i = 0;
 	j = 0;
 	while (param[i] != '\0')
