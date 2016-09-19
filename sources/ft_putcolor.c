@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/14 21:31:51 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/15 17:15:12 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 12:32:20 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	ft_putcolor(char rwx, char *s)
 void	ft_color_dir(char *path, char *dir, char *param)
 {
 	struct stat buf;
-	char *pth;
-	t_l l;
+	char		*pth;
+	t_l			l;
 
 	pth = ft_strjoin_path(path, dir);
 	lstat(pth, &buf);
@@ -42,10 +42,10 @@ void	ft_color_dir(char *path, char *dir, char *param)
 
 void	ft_color_g(char **tab, char *path, char *param)
 {
-	struct stat buf;
-	char *pth;
-	t_l l;
-	int i;
+	struct stat	buf;
+	char		*pth;
+	t_l			l;
+	int			i;
 
 	i = 0;
 	while (tab[i] != NULL)

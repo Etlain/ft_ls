@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 23:05:39 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/06/03 02:42:35 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:58:00 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ char		*ft_itoah(unsigned int nbr, int size)
 {
 	char	*str;
 	long	l;
-	int	i;
-	int	h;
-	int	max;
+	int		i;
+	int		h;
+	int		max;
 
 	if (nbr == 0)
 		return ("0");
@@ -61,7 +61,7 @@ char		*ft_itoah(unsigned int nbr, int size)
 	str[i + 1] = '\0';
 	ft_init_str(str, '0', i + 1);
 	i = max;
-	while (i >= 0  && nbr != 0)
+	while (i >= 0 && nbr != 0)
 	{
 		nbr = nbr - l;
 		str[max - i] = nbr_to_hex(h, size);

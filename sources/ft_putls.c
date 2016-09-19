@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 23:07:11 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:39:47 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	ft_putbuf(void *buf, char *str, int *i)
 {
-	char *b;
-	int j;
+	char	*b;
+	int		j;
 
 	j = 0;
 	b = (char *)buf;
@@ -36,11 +36,11 @@ static void	ft_putbuf(void *buf, char *str, int *i)
 	}
 }
 
-void	ft_putdir(char **tab)
+void		ft_putdir(char **tab)
 {
-	char buf[BUF_MAX];
-	int i;
-	int index;
+	char	buf[BUF_MAX];
+	int		i;
+	int		index;
 
 	index = 0;
 	i = 0;
@@ -61,7 +61,7 @@ void	ft_putdir(char **tab)
 static void	ft_dirr(char *path, char **dir, int i, char *param)
 {
 	struct stat st;
-	char *path2;
+	char		*path2;
 
 	path2 = NULL;
 	if (!path || !dir)
@@ -69,7 +69,7 @@ static void	ft_dirr(char *path, char **dir, int i, char *param)
 	path2 = ft_strjoin_path(path, dir[i]);
 	if (lstat(path2, &st) == -1)
 	{
-		ft_printf("error stat path : %s, %s\n", path2, path); // modif
+		ft_printf("error stat path : %s, %s\n", path2, path);
 		ft_memdel((void **)&param);
 		ft_memdel((void **)&path2);
 		ft_free_tab(dir);
@@ -83,11 +83,11 @@ static void	ft_dirr(char *path, char **dir, int i, char *param)
 	ft_memdel((void **)&path2);
 }
 
-void	ft_putdirr(char *path, char *param)
+void		ft_putdirr(char *path, char *param)
 {
-	t_max max;
-	char **dir;
- 	int i;
+	t_max	max;
+	char	**dir;
+	int		i;
 
 	if (!path)
 		return ;
@@ -112,10 +112,10 @@ void	ft_putdirr(char *path, char *param)
 	ft_free_tab(dir);
 }
 
-void	ft_putls(char *path, char *param, int b)
+void		ft_putls(char *path, char *param, int b)
 {
-	char **tab;
-	t_max max;
+	char	**tab;
+	t_max	max;
 
 	init_max(&max);
 	if (param != NULL && (ft_strchr(param, 'R') != NULL))

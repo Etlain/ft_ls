@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 16:49:57 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 23:16:33 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:45:45 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,21 @@ typedef struct		s_max
 	char			*space;
 }					t_max;
 
-void	ft_sort(char *path, char **tab, char *param);
-void	ft_putls(char *path, char *param, int b);
-char	**ft_tab(char *directory, t_max *max, char *param);
-char	*last_namep(char *path);
-void	ft_putcolor(char rwx, char *s);
-void	ft_color_dir(char *path, char *dir, char *param);
-void	ft_color_g(char **tab, char *path, char *param);
-void	ft_putformat(char *path, char *param);
-char	*ft_param(char **argv, int argc, int (*f)(char c));
-void	ft_putdir(char **tab);
-void	ft_putdirl(char *path, char *param);
-void	ft_putdirr(char *path, char *param);
-void	fill_struct_l(struct stat buf, char *path, t_l *l, char *param);
-void	free_struct_l(t_l *l);
-void	init_max(t_max *max);
-void	fill_struct_max(char *file, t_max *max, char *param);
+void				ft_sort(char *path, char **tab, char *param);
+void				ft_putls(char *path, char *param, int b);
+char				**ft_tab(char *directory, t_max *max, char *param);
+char				*last_namep(char *path);
+void				ft_putcolor(char rwx, char *s);
+void				ft_color_dir(char *path, char *dir, char *param);
+void				ft_color_g(char **tab, char *path, char *param);
+void				ft_putformat(char *path, char *param);
+char				*ft_param(char **argv, int argc, int (*f)(char c));
+void				ft_putdir(char **tab);
+void				ft_putdirl(char *path, char *param);
+void				ft_putdirr(char *path, char *param);
+void				fill_struct_l(struct stat buf, char *path, t_l *l, char *p);
+void				free_struct_l(t_l *l);
+void				init_max(t_max *max);
+void				fill_struct_max(char *file, t_max *max, char *param);
 
 #endif

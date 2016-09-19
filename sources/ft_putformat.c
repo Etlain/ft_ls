@@ -6,7 +6,7 @@
 /*   By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 12:38:00 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 21:26:50 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 12:37:45 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ static void	ft_space(int space)
 	}
 }
 
-void ft_putformat(char *path, char *param)
+void		ft_putformat(char *path, char *param)
 {
-	char **tab;
-	t_max max;
-	struct winsize ws;
-	int i;
-	int nbr_file;
+	struct winsize	ws;
+	t_max			max;
+	char			**tab;
+	int				i;
+	int				nbr_file;
 
 	ioctl(0, TIOCGWINSZ, &ws);
 	init_max(&max);
 	tab = ft_tab(path, &max, param);
 	i = 0;
-	nbr_file =  ws.ws_col / max.file;
+	nbr_file = ws.ws_col / max.file;
 	while (tab[i] != '\0')
 	{
 		if (param != NULL && ft_strchr(param, 'G') != NULL)

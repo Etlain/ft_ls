@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 23:15:05 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:43:56 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	ft_nbr_file(char *directory)
 {
-	void *dir;
-	int nbr_file;
-	int error;
-	struct dirent *file;
+	struct dirent	*file;
+	void			*dir;
+	int				nbr_file;
+	int				error;
 
 	nbr_file = 0;
 	if ((dir = opendir(directory)) == NULL)
@@ -39,13 +39,13 @@ static int	ft_nbr_file(char *directory)
 	return (nbr_file);
 }
 
-static char **fill_tab_a(char *dir, t_max *max, char *param)
+static char	**fill_tab_a(char *dir, t_max *max, char *param)
 {
-	char **tab;
-	int nbr_file;
-	struct dirent *file;
-	void	*dir2;
-	int i;
+	struct dirent	*file;
+	char			**tab;
+	void			*dir2;
+	int				nbr_file;
+	int				i;
 
 	if ((nbr_file = ft_nbr_file(dir)) == -1)
 		return (NULL);
@@ -64,13 +64,13 @@ static char **fill_tab_a(char *dir, t_max *max, char *param)
 	return (tab);
 }
 
-static char **fill_tab(char *d, t_max *m, char *p)
+static char	**fill_tab(char *d, t_max *m, char *p)
 {
-	char **tab;
-	int nbr_file;
-	struct dirent *file;
-	void	*dir;
-	int i;
+	struct dirent	*file;
+	char			**tab;
+	void			*dir;
+	int				nbr_file;
+	int				i;
 
 	if ((nbr_file = ft_nbr_file(d)) == -1)
 		return (NULL);
@@ -93,7 +93,7 @@ static char **fill_tab(char *d, t_max *m, char *p)
 	return (tab);
 }
 
-char **ft_tab(char *directory, t_max *max, char *param)
+char		**ft_tab(char *directory, t_max *max, char *param)
 {
 	char **tab;
 

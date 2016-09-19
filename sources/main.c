@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 22:20:20 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:41:09 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ static void	ft_display(int argc, char **argv, char *param, int i)
 	free(param);
 }
 
-int	main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
-	char *param;
-	int i;
-	int b;
+	char	*param;
+	int		i;
+	int		b;
 
 	param = ft_param(argv, argc, is_param);
 	i = 1;

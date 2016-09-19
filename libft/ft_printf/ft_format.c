@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 18:45:53 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/06/01 19:02:37 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:52:14 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,31 +70,7 @@ static t_format		*format_init(void)
 	format->type = '\0';
 	return (format);
 }
-/*
-static void			ft_putformat(t_format *format) // a effacer
-{
-	ft_putchar('\n');
-	ft_putendl("format :");
-	ft_putstr("flags : ");
-	ft_putchar(format->flags);
-	ft_putchar('\n');
-	ft_putstr("sign : ");
-	ft_putchar(format->sign);
-	ft_putchar('\n');
-	ft_putstr("pre : ");
-	ft_putchar(format->pre);
-	ft_putchar('\n');
-	ft_putstr("width : ");
-	ft_putendl(format->width);
-	ft_putstr("precision : ");
-	ft_putendl(format->precision);
-	ft_putstr("modifier : ");
-	ft_putendl(format->modifier);
-	ft_putstr("type : ");
-	ft_putchar(format->type);
-	ft_putchar('\n');
-}
-*/
+
 static void			free_format(t_format *format)
 {
 	if (format->precision != NULL)
@@ -132,6 +108,5 @@ int					ft_format(va_list lst, const char *s, int *i)
 		}
 	}
 	free_format(format);
-	//ft_putformat(format);
 	return (length);
 }

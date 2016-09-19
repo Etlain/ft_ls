@@ -6,7 +6,7 @@
 /*   By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 20:17:56 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 23:06:26 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 12:37:51 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	put_permission(struct stat buf, char *path, t_max m, char *param)
 		l.time[2][n] == '\0' ? n = 5 : 0;
 		ft_printf("%s ", l.time[0]);
 		ft_printf("%*s ", ft_space(m.time1, l.time[1]), l.time[1]);
-		ft_printf("%*.*s ", ft_space(m.time2, l.time[2]), n, l.time[2]); 
+		ft_printf("%*.*s ", ft_space(m.time2, l.time[2]), n, l.time[2]);
 	}
 	if (ft_strchr(param, 'G') == NULL)
 		ft_printf("%s\n", l.file);
@@ -87,11 +87,11 @@ static int	display(char **tab, char *path, char *param, int *i)
 
 void		ft_putdirl(char *path, char *param)
 {
-	t_max max;
-	char *pth2;
-	char **tab;
-	int i;
 	struct stat st;
+	t_max		max;
+	char		**tab;
+	char		*pth2;
+	int			i;
 
 	init_max(&max);
 	if ((tab = ft_tab(path, &max, param)) == NULL)

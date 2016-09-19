@@ -6,14 +6,14 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 19:35:13 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/04/07 23:13:22 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:50:28 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_init_str(void *s, unsigned int c, int n)
 {
 	unsigned char	*str;
-	int		i;
+	int				i;
 
 	i = 0;
 	str = (unsigned char *)s;

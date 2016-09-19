@@ -6,7 +6,7 @@
 /*   By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 11:54:54 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/06/03 02:44:53 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:58:21 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static unsigned long long	ft_dizaine(char **str, unsigned long long n)
 {
 	unsigned long long	nbr;
 	unsigned long long	dizaine;
-	int			i;
+	int					i;
 
 	nbr = n;
 	dizaine = 1;

@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 15:37:25 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/16 23:07:36 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:39:43 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static int	compare_time(struct stat buf1, struct stat buf2, int b)
 {
 	if (b == 0 || b == 1)
 	{
-		if (buf2.st_mtimespec.tv_sec > buf1.st_mtimespec.tv_sec) 
-				return (-1);
+		if (buf2.st_mtimespec.tv_sec > buf1.st_mtimespec.tv_sec)
+			return (-1);
 		else if (buf2.st_mtimespec.tv_sec == buf1.st_mtimespec.tv_sec)
 		{
 			if (buf2.st_mtimespec.tv_nsec == buf1.st_mtimespec.tv_nsec)
@@ -26,8 +26,8 @@ static int	compare_time(struct stat buf1, struct stat buf2, int b)
 	}
 	else if (b == 2 || b == 3)
 	{
-		if (buf2.st_atimespec.tv_sec > buf1.st_atimespec.tv_sec) 
-				return (-1);
+		if (buf2.st_atimespec.tv_sec > buf1.st_atimespec.tv_sec)
+			return (-1);
 		else if (buf2.st_atimespec.tv_sec == buf1.st_atimespec.tv_sec)
 		{
 			if (buf2.st_atimespec.tv_nsec == buf1.st_atimespec.tv_nsec)
@@ -37,7 +37,7 @@ static int	compare_time(struct stat buf1, struct stat buf2, int b)
 	return (0);
 }
 
-static void fill_buf(struct stat *buf1, char *path, char *s1)
+static void	fill_buf(struct stat *buf1, char *path, char *s1)
 {
 	char *pth1;
 
@@ -46,11 +46,11 @@ static void fill_buf(struct stat *buf1, char *path, char *s1)
 	ft_memdel((void **)&pth1);
 }
 
-static int sort_tu(char *path, char *s1, char *s2, int b)
+static int	sort_tu(char *path, char *s1, char *s2, int b)
 {
 	struct stat buf1;
 	struct stat buf2;
-	int nbr;
+	int			nbr;
 
 	nbr = 0;
 	fill_buf(&buf1, path, s1);
@@ -74,9 +74,9 @@ static int sort_tu(char *path, char *s1, char *s2, int b)
 
 static void	sort_time(char *path, char **tab, int b)
 {
-	char *tmp;
-	int i;
-	int move;
+	char	*tmp;
+	int		i;
+	int		move;
 
 	move = 1;
 	while (move == 1)
@@ -97,7 +97,7 @@ static void	sort_time(char *path, char **tab, int b)
 	}
 }
 
-void	ft_sort(char *path, char **tab, char *param)
+void		ft_sort(char *path, char **tab, char *param)
 {
 	int r;
 
@@ -110,7 +110,10 @@ void	ft_sort(char *path, char **tab, char *param)
 		{
 			if (ft_strchr(param, 'u') != NULL)
 			{
-				r == 1 ? (r = 3) : (r = 2);
+				if (r == 1)
+					r = 3;
+				else
+					r = 2;
 				sort_time(path, tab, r);
 				return ;
 			}

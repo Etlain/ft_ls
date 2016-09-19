@@ -6,13 +6,13 @@
 /*   By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 14:44:44 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/06/03 01:43:11 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:53:37 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void    ft_round(char *str, int i, int b)
+static void		ft_round(char *str, int i, int b)
 {
 	if (str[i] > '4' && str[i] <= '9')
 	{
@@ -40,12 +40,12 @@ void    ft_round(char *str, int i, int b)
 		str[i] = '\0';
 }
 
-void	ft_putldbl(long double nbr, int size)
+void			ft_putldbl(long double nbr, int size)
 {
 	long int	n;
 	long int	nbr2;
-	int		i;
-	int		b;
+	int			i;
+	int			b;
 	char		*str;
 
 	str = (char *)malloc(size + 1);

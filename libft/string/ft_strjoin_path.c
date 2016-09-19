@@ -6,13 +6,13 @@
 /*   By: mmouhssi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 14:37:52 by mmouhssi          #+#    #+#             */
-/*   Updated: 2016/09/09 11:47:53 by mmouhssi         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:48:44 by mmouhssi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char *ft_strjoin_path(char const *path, char const *file)
+char	*ft_strjoin_path(char const *path, char const *file)
 {
 	char *str;
 
